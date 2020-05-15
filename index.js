@@ -91,10 +91,14 @@ class Car {
   }
 
   drive(distance){
-    this.odometer= (this.odometer+=distance);
-    if (this.odometer+=25){
-      
-    }
+     
+    if (this.tank = distance/this.milesPerGallon){
+      this.odometer= (this.odometer+=distance);
+    } else {
+      let drivableMiles= this.milesPerGallon*this.tank ;
+       distance=distance-drivableMiles; //actual distance car can drive
+       this.odometer= this.odometer+distance;
+  }
   }
 
 }
