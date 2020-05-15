@@ -116,9 +116,27 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor (object){
+    this.name =object.name;
+    this.age =object.age;
+    this.location =object.location;
+  }
 
-}
+  speak(){
+    return `Hello, my name is ${this.name} and I was born in ${this.location}`
+  }
 
+} 
+  const object1 = new Lambdasian({
+    name: 'Peggy',
+    age: 55,
+    location: 'Egypt'
+  })
+  
+
+
+  
+  
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
