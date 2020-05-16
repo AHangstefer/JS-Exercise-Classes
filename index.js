@@ -146,14 +146,47 @@ class Lambdasian {
         + `favLanguage`: i.e. 'JavaScript, Python, Elm etc.'
         + `catchPhrase`: i.e. `Don't forget the homies`.
     - The constructor calls the parent constructor passing it what it needs.
-    - The constructor should also initialize `specialty`, `favLanguage` and `catchPhrase` properties on the instance.
+    - The constructor should also initialize `specialty`, `favLanguage` and 
+    `catchPhrase` properties on the instance.
     - Instructor instances have the following methods:
-        + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-        + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
+        + `demo` receives a `subject` string as an argument and returns
+         the phrase 'Today we are learning about {subject}' where subject is 
+         the param passed in.
+        + `grade` receives a `student` object and a `subject` string as 
+        arguments and returns '{student.name} receives a perfect score on 
+        {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(objectAttr){
+    super(objectAttr);
+      this.specialty = objectAttr.specialty;
+      this.favLanguage =objectAttr.favLanguage;
+      this.catchPhrase =objectAttr.catchPhrase;
+    
+    }
+    demo(subject){
+      return `Today we are learning about ${subject}`
+    }
+    grade(student, subject){
+      return `${student} receives a perfect score on ${subject}`
+    }
 
-}
+
+
+ }
+
+  const instructor1 = new Instructor({
+    name: 'Becky',
+    age: 40,
+    location: 'Georgia',
+    specialty: 'redux',
+    favLanguage: 'JavaScript, Python, Elm etc.',
+    catchPhrase: "Don't know what it does but I'm scared to delete"
+  });
+
+  console.log(instructor1.demo(instructor1.favLanguage));
+  console.log(instructor1.grade(instructor1.name, instructor1.specialty));
+
 
 /*
   TASK 5
@@ -170,10 +203,39 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(keys){
+    super(keys);
+    this.previousBackground= keys.previousBackground;
+    this.className= keys.className;
+    this.favSubjects=keys.favSubjects
+
+  }
+  listSubjects(favSubjects){
+    favSubjects = this.favSubjects;
+    return `Loving ${favSubjects.toString()}!`
+  }
+  PRAssignment(subject){
+    subject= this.favSubjects[0];
+    return `${this.name} submitted a PR for ${subject}`
+  }
+  sprintChallenge(){
+    return `${this.name} has begun sprint challenge on ${this.favSubjects[2]}`
+  }
 
 }
 
+const student1= new Student({
+  name: 'Cecily',
+  age: 20,
+  location:'Florida',
+  previousBackground: 'zoo keeper',
+  className: 'CS123',
+  favSubjects: ['HTLM', 'CSS', 'Weapons', 'Swimming']
+})
+console.log(student1.listSubjects());
+console.log(student1.PRAssignment());
+console.log(student1.sprintChallenge());
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
