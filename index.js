@@ -249,9 +249,44 @@ console.log(student1.sprintChallenge());
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(items){
+    super(items);
+    this.gradClassName= items.gradClassName,
+    this.favInstructor= items.favInstructor
+  }
+
+  speak(){
+      return `Hello, my name is ${this.name} and I was born in ${this.location}`
+  }
+  grade(student, subject){
+    student = this.name;
+    subject = this.specialty;
+    return `${student} receives a perfect score on ${subject}`
+  }
+  standUp(){
+
+  }
+
+  debugCode(){
+
+  }
 
 }
+
+const projectManager1= new ProjectManager({
+  name: 'Jimmy',
+  age: 60,
+  location: 'New York',
+  specialty: 'Knives',
+  favLanguage: 'JavaScript, Python, Elm etc.',
+  catchPhrase: "It ain't much but it's honest work",
+  gradClassName: "CS1",
+  favInstructor: "Sean"
+})
+
+console.log(projectManager1.speak());
+console.log(projectManager1.grade());
 
 /*
   STRETCH PROBLEM (no tests!)
