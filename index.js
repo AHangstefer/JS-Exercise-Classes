@@ -255,7 +255,6 @@ class ProjectManager extends Instructor {
     this.gradClassName= items.gradClassName,
     this.favInstructor= items.favInstructor
   }
-
   speak(){
       return `Hello, my name is ${this.name} and I was born in ${this.location}`
   }
@@ -264,13 +263,14 @@ class ProjectManager extends Instructor {
     subject = this.specialty;
     return `${student} receives a perfect score on ${subject}`
   }
-  standUp(){
-
+  standUp(channel){
+   return `${this.name} announces to ${channel}, @${channel} standy times!`  
   }
 
-  debugCode(){
-
-  }
+  debugCode(student, subject){
+    subject =student1.favSubjects[3];
+    return `${this.name} debugs ${student1.name}'s code on ${subject}`
+}
 
 }
 
@@ -287,6 +287,8 @@ const projectManager1= new ProjectManager({
 
 console.log(projectManager1.speak());
 console.log(projectManager1.grade());
+console.log(projectManager1.standUp("WEBPT16"));
+console.log(projectManager1.debugCode());
 
 /*
   STRETCH PROBLEM (no tests!)
