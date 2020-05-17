@@ -87,21 +87,28 @@ class Car {
   }
 
   fill(gallons){
-    this.tank = (this.tank +=gallons);
+    this.tank +=gallons;
   }
 
   drive(distance){
      
-    if (this.tank = distance/this.milesPerGallon){
-      this.odometer= (this.odometer+=distance);
+    if (this.tank >= distance/this.milesPerGallon){
+       this.odometer+=distance;
     } else {
       let drivableMiles= this.milesPerGallon*this.tank ;
-       distance=distance-drivableMiles; //actual distance car can drive
-       this.odometer= this.odometer+distance;
+      distance=distance-drivableMiles;                    //actual distance car can drive
+      this.odometer= this.odometer+distance;
+      return `I ran out of fuel at ${this.odometer} miles!`;
   }
   }
 
 }
+const car1 = new Car("BMW", 30);
+console.log(car1);
+car1.fill(15);
+console.log(car1);
+car1.drive(20);
+console.log(car1);
 
 /*
   TASK 3
@@ -211,16 +218,15 @@ class Student extends Lambdasian {
     this.favSubjects=keys.favSubjects
 
   }
-  listSubjects(favSubjects){
-    favSubjects = this.favSubjects;
-    return `Loving ${favSubjects.toString()}!`
+  listSubjects(){
+    return `Loving ${this.favSubjects.toString()}!`
   }
   PRAssignment(subject){
-    subject= this.favSubjects[0];
+    //subject= this.favSubjects[0];
     return `${this.name} submitted a PR for ${subject}`
   }
-  sprintChallenge(){
-    return `${this.name} has begun sprint challenge on ${this.favSubjects[2]}`
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 
 }
@@ -231,11 +237,11 @@ const student1= new Student({
   location:'Florida',
   previousBackground: 'zoo keeper',
   className: 'CS123',
-  favSubjects: ['HTLM', 'CSS', 'Weapons', 'Swimming']
+  favSubjects: ['HTML', 'CSS', 'Weapons', 'Swimming']
 })
 console.log(student1.listSubjects());
-console.log(student1.PRAssignment());
-console.log(student1.sprintChallenge());
+console.log(student1.PRAssignment('english'));
+console.log(student1.sprintChallenge('JavaScript'));
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
